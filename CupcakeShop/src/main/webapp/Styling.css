@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-shadow: none;
+    background-color: #CAE8E9;
+}
+
+.forside{
+    background-color: #CAE8E9;
+    min-height: 915px;
+}
+
+.header_pic{
+    width: 100%;
+    height: 80%;
+}
+/*css styling til index siden*/
+.index{
+    padding: 10px;
+    text-align: center;
+    float: none;
+    margin: 2em auto;
+}
+
+/*css til shoppen*/
+.forsec{
+    padding: 10px;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #CAE8E9;
+}
+
+li {
+    float: left;
+}
+
+li a, p {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-top: 2.5em;
+}
+
+.shopnav{
+    border-bottom: 1px solid white;
+}
+
+.shopnav button{
+    border-radius: 15px;
+    padding: 0 10%;
+}
+.fortab td {
+    padding: 1em 0;
+    vertical-align: bottom;
+}
+
+.fortab select, input{
+    width: 100%;
+    text-align: center;
+    padding: 0.2em 0;
+}
+
+.fortab button{
+    text-align: center;
+    padding: 0.2em 0;
+    border-radius: 15px;
+}
+
+.fortab th {
+    background-color: #f44141;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
