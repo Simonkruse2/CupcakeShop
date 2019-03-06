@@ -5,6 +5,8 @@
  */
 package Logic;
 
+import Data.CakeBottom;
+import Data.CakeToppings;
 import Data.Recipe;
 import Data.User;
 import java.sql.Connection;
@@ -100,5 +102,45 @@ public class DataAccessObject_Impl {
             ex.printStackTrace();
             return null;
         }
+    }
+    
+    public ArrayList<CakeBottom> getBottom(){
+        try {
+        DBConnector c = new DBConnector();
+        String query = "SELECT * FROM cupcake.CakeBottom;";
+        ArrayList<CakeBottom> bottomArray = new ArrayList<>();
+        Connection connection = c.getConnection();
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) {
+                String bottom = rs.getString("Bottom");
+                int price = rs.getInt("Price");
+                bottomArray.add(new CakeBottom(bottom, price));
+            }
+            return bottomArray;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+    }
+    }
+    
+     public ArrayList<CakeToppings> getToppings(){
+        try {
+            DBConnector c = new DBConnector();
+        String query = "SELECT * FROM cupcake.CakeToppings;";
+        ArrayList<CakeToppings> toppingsArray = new ArrayList<>();
+        Connection connection = c.getConnection();
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        while (rs.next()) {
+                String toppings = rs.getString("Toppings");
+                int price = rs.getInt("Price");
+                toppingsArray.add(new CakeToppings(toppings, price));
+            }
+            return toppingsArray;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+    }
     }
 }
