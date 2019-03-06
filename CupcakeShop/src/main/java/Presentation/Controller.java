@@ -53,9 +53,6 @@ public class Controller extends HttpServlet {
             case "shop":
                 shop(request, response);
                 break;
-            case "index1":
-                index1(request, response);
-                break;
             case "admin":
                 admin(request, response);
                 break;
@@ -104,7 +101,7 @@ public class Controller extends HttpServlet {
                 && !("".equals(password))) {
             request.getRequestDispatcher("shop.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 
