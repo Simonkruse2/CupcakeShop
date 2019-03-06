@@ -5,7 +5,6 @@
  */
 package Presentation;
 
-import Data.User;
 import Logic.DataAccessObject_Impl;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -57,6 +56,9 @@ public class Controller extends HttpServlet {
             case "index1":
                 index1(request, response);
                 break;
+            case "admin":
+                admin(request, response);
+                break;
             default:
                 throw new AssertionError();
         }
@@ -79,8 +81,12 @@ public class Controller extends HttpServlet {
     private void shop(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
+
     private void index1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("index1.jsp").forward(request, response);
+    }
+        private void admin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
 
     private void checkLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -94,10 +100,11 @@ public class Controller extends HttpServlet {
 
         boolean valid = d.checkLogin(username, password);
 
-        if (valid) {
+        if (valid && username != null && password != null && !("".equals(username))
+                && !("".equals(password))) {
             request.getRequestDispatcher("shop.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 
