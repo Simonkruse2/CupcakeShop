@@ -11,9 +11,9 @@
             <img class="header_pic" src="IMG/Cup_!.png" alt=""/>
             <section class="row index col-md-3">
                 <h1>Create Customer</h1>
-                <form action="Controller?origin=checkLogin" method="post" class="text-center login" style="color: #757575;">
+                <form action="Controller?origin=makeCustomer" method="post" class="text-center login" style="color: #757575;">
                     <div class="col-md-12"> 
-                        <input type="text" class="form-control" name="username" placeholder="Email">
+                        <input type="text" class="form-control" name="email" placeholder="Email">
                     </div>
 
                     <div class="col-md-12"> 
@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="text" class="form-control" name="password" placeholder="Password">
                     </div>
                     <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">CREATE</button>
                     <a href="CupcakeShop/"><button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">login page</button></a>

@@ -48,6 +48,9 @@ public class Controller extends HttpServlet {
             case "createCustomer":
                 createCustomer(request, response);
                 break;
+            case "makeCustomer":
+                makeCustomer(request, response);
+                break;
             case "checkLogin":
                 checkLogin(request, response);
                 break;
@@ -85,7 +88,7 @@ public class Controller extends HttpServlet {
     }
 
     private void admin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
 
@@ -111,15 +114,15 @@ public class Controller extends HttpServlet {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
-    
-      private void makeCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    private void makeCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-       
+
         d.createCustomer(email);
         d.createUser(username, password, email);
-       
+
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
