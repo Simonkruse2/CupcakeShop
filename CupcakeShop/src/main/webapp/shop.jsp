@@ -1,7 +1,9 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="Logic.DataAccessObject_Impl"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<link href="styling.css" rel="stylesheet" type="text/css"/>
+<link href="Styling.css" rel="stylesheet" type="text/css"/>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,14 +13,15 @@
         <header class="container-fluid">
             <nav class="col-md-6 col-md-offset-3 shopnav">
                 <ul>
-                    <a href><img src="logo.png" alt=""/></a>
-                    <li style="float:right"><a href=""><button>Invoice</button></a></li>
+                    <a href="Controller?origin=shop"><img src="IMG/logo.png" alt=""/></a>
+                    <li style="float:right"><a href="Controller?origin=Invoice"><button>Invoice</button></a></li>
                     <li style="float:right"><p>Who is logged in</p></li>
                     <li style="float:right"><p>Show balance</p></li>
                 </ul>
             </nav>
         </header>
         <main class="col-md-6 col-md-offset-3 forside">
+            <h1>Shop</h1>
             <section class="row col-md-12 forsec">
                 <table class="col-md-12 fortab">
                     <tr>
@@ -37,21 +40,19 @@
                     </tr>
                     <tr>
                         <td>
-                            <select class="mdb-select md-form" name="bottom " id="bottomSelect">
-                                <option value="">Choose bottom</option>
-                                <option value="1">Chocolate: 5.0</option>
-                                <option value="2">Blueberry: 5.0</option>
-                                <option value="3">Raspberry: 5.0</option>
-                                <option value="4">Crispy: 6.0</option>
-                                <option value="5">Strawberry: 6.0</option>
-                                <option value="6">Rum/Raisin: 7.0</option>
-                                <option value="7">Orange: 8.0</option>
-                                <option value="8">Lemon: 8.0</option>
-                                <option value="9">Blue cheese: 9.0</option>
+                            <select class="mdb-select md-form selection java.util.ArrayList" id="bottom" name="bottom">
+                                <option value="" disabled>Choose a bottom</option>
+                                <%
+                                    DataAccessObject_Impl d = new DataAccessObject_Impl();
+                                %>
+                                <option><%out.print(d.getBottom().get(0));%>"></option>
+                                <%
+                                    }
+                                %>
                             </select>
                         </td>
                         <td>
-                            <select class="mdb-select md-form" name="topping" id="toppingSelect">
+                            <select class="mdb-select md-form selection" name="topping">
                                 <option value="">Choose topping</option>
                                 <option value="1">Chocolate: 5.0</option>
                                 <option value="2">Vanilla: 5.0</option>
@@ -91,7 +92,7 @@
                             Chocolate
                         </td>
                         <td>
-                           Strawberry
+                            Strawberry
                         </td> 
                         <td>
                             5

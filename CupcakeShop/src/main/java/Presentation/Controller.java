@@ -7,6 +7,7 @@ package Presentation;
 
 import Logic.DataAccessObject_Impl;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,6 +57,9 @@ public class Controller extends HttpServlet {
             case "admin":
                 admin(request, response);
                 break;
+            case "Invoice":
+                Invoice(request, response);
+                break;
             default:
                 throw new AssertionError();
         }
@@ -76,14 +80,17 @@ public class Controller extends HttpServlet {
     }
 
     private void shop(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 
-    private void index1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("index1.jsp").forward(request, response);
-    }
-        private void admin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void admin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         request.getRequestDispatcher("admin.jsp").forward(request, response);
+    }
+
+    private void Invoice(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("Invoice.jsp").forward(request, response);
     }
 
     private void checkLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -103,6 +110,17 @@ public class Controller extends HttpServlet {
         } else {
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+    }
+    
+      private void makeCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("email");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+       
+        d.createCustomer(email);
+        d.createUser(username, password, email);
+       
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

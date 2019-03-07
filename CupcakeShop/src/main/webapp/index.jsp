@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<link href="styling.css" rel="stylesheet" type="text/css"/>
+<link href="Styling.css" rel="stylesheet" type="text/css"/>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,33 +17,20 @@
         <main class="container-fluid">
             <img class="header_pic" src="IMG/Cup_!.png" alt=""/>
             <section class="row index col-md-3">
-                Form 
-                <form action="Controller?origin=checkLogin" method="post" class="text-center" style="color: #757575;">
-                    Username 
-                    <div> 
-
-                        <input type="text" class="form-control" name="username" placeholder="username">
-
+                <form action="Controller?origin=checkLogin" method="post" class="text-center login" style="color: #757575;">
+                    <div class="col-md-12"> 
+                        <input type="text" class="form-control" name="username" placeholder="Username">
                     </div>
-
-                    Password 
-                    <div>
-
-                        <input type="password" class="form-control" name="password" placeholder="password">
-
+                    <div class="col-md-12">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
-
-                    Sign in button 
                     <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
-
-                    Register 
-                    <p>Not a member?
+                    <span>Not a member?
                         <br>
                         <a href="Controller?origin=createCustomer" >click here if you're not already a user</a>
-                    </p>
+                    </span>
                 </form>
-                Form 
             </section>
         </main>
     </body>
-</html>-->
+</html>

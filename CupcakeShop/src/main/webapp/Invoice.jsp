@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<link href="styling.css" rel="stylesheet" type="text/css"/>
+<link href="Styling.css" rel="stylesheet" type="text/css"/>
 <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet"> 
 <html>
     <head>
@@ -19,10 +19,8 @@
         <header class="container-fluid">
             <nav class="col-md-6 col-md-offset-3 shopnav">
                 <ul>
-                    <a href><img src="logo.png" alt=""/></a>
+                    <a href="Controller?origin=shop"><img src="IMG/logo.png" alt=""/></a>
                     <li style="float:right"><a href=""><button>Invoice - show only if admin</button></a></li>
-                    <li style="float:right"><p>Who is logged in</p></li>
-                    <li style="float:right"><p>Show balance</p></li>
                 </ul>
             </nav>
         </header>
