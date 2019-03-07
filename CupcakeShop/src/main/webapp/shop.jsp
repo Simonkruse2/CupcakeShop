@@ -41,14 +41,8 @@
                     <tr>
                         <td>
                             <select class="mdb-select md-form selection java.util.ArrayList" id="bottom" name="bottom">
-                                <option value="" disabled>Choose a bottom</option>
-                                <%
-                                    DataAccessObject_Impl d = new DataAccessObject_Impl();
-                                %>
-                                <option><%out.print(d.getBottom().get(0));%>"></option>
-                                <%
-                                    }
-                                %>
+                                <option value="Choose a bottom" disabled>Choose a bottom</option>
+
                             </select>
                         </td>
                         <td>

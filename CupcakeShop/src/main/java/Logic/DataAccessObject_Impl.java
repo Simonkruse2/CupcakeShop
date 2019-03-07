@@ -73,7 +73,7 @@ public class DataAccessObject_Impl {
         try {
             DBConnector c = new DBConnector();
 
-            String query = "SELECT * FROM `Users` WHERE Name LIKE '" + username + "';";
+            String query = "SELECT * FROM `users` WHERE Name LIKE '" + username + "';";
             ArrayList<User> user = new ArrayList<>();
             Connection connection = c.getConnection();
             Statement stmt = connection.createStatement();
@@ -118,7 +118,7 @@ public class DataAccessObject_Impl {
     public ArrayList<CakeBottom> getBottom(){
         try {
         DBConnector c = new DBConnector();
-        String query = "SELECT * FROM cupcake.CakeBottom;";
+        String query = "SELECT * FROM cupcake.cakebottom;";
         ArrayList<CakeBottom> bottomArray = new ArrayList<>();
         Connection connection = c.getConnection();
         Statement stmt = connection.createStatement();
@@ -138,7 +138,7 @@ public class DataAccessObject_Impl {
      public ArrayList<CakeToppings> getToppings(){
         try {
             DBConnector c = new DBConnector();
-        String query = "SELECT * FROM cupcake.CakeToppings;";
+        String query = "SELECT * FROM cupcake.caketoppings;";
         ArrayList<CakeToppings> toppingsArray = new ArrayList<>();
         Connection connection = c.getConnection();
         Statement stmt = connection.createStatement();
