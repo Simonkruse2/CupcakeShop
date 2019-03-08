@@ -56,7 +56,7 @@
                         </td>
                         <td>
                             <select class="mdb-select md-form selection java.util.ArrayList" id="topping" name="topping">
-                                <option  value = "Choose a topping" disabled > Choose a bottom</option >
+                                <option  value = "Choose a topping" disabled > Choose a topping</option >
                                 <%
                                     ArrayList<CakeToppings> listToppings = (ArrayList<CakeToppings>) session1.getAttribute("listToppings");
                                     for (Object toppings : listToppings) {
