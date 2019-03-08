@@ -17,6 +17,10 @@ public class Customer extends User{
         this.balance = balance;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
     @Override
     public String toString() {
         return "Customer{" + "balance=" + balance + '}';

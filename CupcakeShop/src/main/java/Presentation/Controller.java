@@ -7,6 +7,8 @@ package Presentation;
 
 import Data.CakeBottom;
 import Data.CakeToppings;
+import Data.Customer;
+import Data.User;
 import Logic.DataAccessObject_Impl;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -110,9 +112,11 @@ public class Controller extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
-        request.getSession().setAttribute("Username", username);
-        request.getSession().setAttribute("Password", password);
+        User user = d.getUser(username);
+        Customer customer = d.getCustomer(username);
+        
+        session.setAttribute("user", user);
+        session.setAttribute("customer", customer);
 
         boolean valid = d.checkLogin(username, password);
 

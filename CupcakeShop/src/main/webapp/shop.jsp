@@ -1,3 +1,5 @@
+<%@page import="Data.Customer"%>
+<%@page import="Data.User"%>
 <%@page import="Data.CakeToppings"%>
 <%@page import="Data.CakeBottom"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,6 +11,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <% HttpSession session1 = request.getSession(); 
+        User u = (User)session1.getAttribute("user");
+        Customer customer = (Customer)session1.getAttribute("customer");
+        %>
         <title>JSP Page</title>
     </head>
     <body> 
@@ -17,8 +23,8 @@
                 <ul>
                     <a href="Controller?origin=shop"><img src="IMG/logo.png" alt=""/></a>
                     <li style="float:right"><a href="Controller?origin=Invoice"><button>Invoice</button></a></li>
-                    <li style="float:right"><p>Who is logged in</p></li>
-                    <li style="float:right"><p>Show balance</p></li>
+                    <li style="float:right"><p>Who is logged in: <% out.print(u.getUsername()); %></p></li>
+                    <li style="float:right"><p>Show balance: <% out.print(customer.getBalance()); %></p></li>
                 </ul>
             </nav>
         </header>
@@ -44,7 +50,7 @@
                         <td>
                             <select class="mdb-select md-form selection java.util.ArrayList" id="bottom" name="bottom">
                                 <option  value = "Choose a bottom" disabled > Choose a bottom</option >
-                                <% HttpSession session1 = request.getSession();
+                                <%
                                     ArrayList<CakeBottom> listBottom = (ArrayList<CakeBottom>) session1.getAttribute("listBottom");
                                     for (Object bottom : listBottom) {
                                         int i = 1;
