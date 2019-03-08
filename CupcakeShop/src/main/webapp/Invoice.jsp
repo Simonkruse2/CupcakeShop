@@ -19,7 +19,7 @@
         <header class="container-fluid">
             <nav class="col-md-6 col-md-offset-3 shopnav">
                 <ul>
-                    <a href="Controller?origin=shop"><img src="IMG/logo.png" alt=""/></a>
+                    <a href="Controller?origin=shop"><img src="IMG/Crown Bakery.png" alt=""/></a>
                     <li style="float:right"><a href=""><button>Invoice - show only if admin</button></a></li>
                 </ul>
             </nav>
@@ -103,6 +103,60 @@
                     </tr>
                 </table>
             </section>
+                        <footer class="footer">
+                <h1>Contacts</h1>
+                <table class="col-md-5">
+                    <tr>
+                        <td>
+                            <p><img src="IMG/placeholder.png" alt=""/></p>
+                        </td>
+                        <td>
+                            <p>Nørgaardsvej 30, <b>2800 Kongens Lyngby</b></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><img src="IMG/mobile-phone.png" alt=""/></p>
+                        </td>
+                        <td>
+                            <p><b>+45 36 15 45 04</b></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><img src="IMG/email.png" alt=""/></p>
+                        </td>
+                        <td>
+                            <p><a href="mailto:Group_5@example.com?Subject=Hello%20again" target="_top">Send Mail</a></p>
+                        </td>
+                    </tr>
+                </table>
+                <table class="col-md-5 col-md-offset-2">
+                    <tr>
+                        <td>
+                            <p><b>ABOUT THE COMPANY</b></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Lorem Ipsum er ganske enkelt fyldtekst fra print-
+                                og typografiindustrien. Lorem Ipsum har været standard 
+                                fyld</p>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>
+                                <img src="IMG/placeholder.png" alt=""/>
+                                <img src="IMG/placeholder.png" alt=""/>
+                                <img src="IMG/placeholder.png" alt=""/>
+                                <img src="IMG/placeholder.png" alt=""/>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </footer>
         </main>
     </body>
 </html>
