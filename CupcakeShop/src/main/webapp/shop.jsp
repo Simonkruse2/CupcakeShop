@@ -1,3 +1,4 @@
+<%@page import="Data.CakeBottom"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Logic.DataAccessObject_Impl"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,8 +42,15 @@
                     <tr>
                         <td>
                             <select class="mdb-select md-form selection java.util.ArrayList" id="bottom" name="bottom">
-                                <option value="Choose a bottom" disabled>Choose a bottom</option>
-
+                                <option  value = "Choose a bottom" disabled > Choose a bottom</option >
+                                <% HttpSession session1 = request.getSession();
+                                    ArrayList<CakeBottom> listBottom = (ArrayList<CakeBottom>) session1.getAttribute("listBottom");
+                                    for (Object bottom : listBottom) {
+                                        int i = 1;
+                                %>
+                                <option value="<% out.print(i); %>"> <% out.print(bottom); %> </option >
+                                <% i++;
+                                    }%>
                             </select>
                         </td>
                         <td>

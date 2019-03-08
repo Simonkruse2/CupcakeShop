@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.CakeBottom;
 import Logic.DataAccessObject_Impl;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,10 +33,14 @@ public class Controller extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     DataAccessObject_Impl d = new DataAccessObject_Impl();
+    HttpSession session;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        session = request.getSession();
+        ArrayList<CakeBottom> listBottom = d.getBottom();
+        session.setAttribute("listBottom",listBottom );
         response.setContentType("text/html;charset=UTF-8");
+        
 
         String origin = request.getParameter("origin");
         switch (origin) {
@@ -70,7 +75,6 @@ public class Controller extends HttpServlet {
     }
 
     private void index(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
@@ -83,6 +87,9 @@ public class Controller extends HttpServlet {
     }
 
     private void shop(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        
+
 
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
@@ -97,7 +104,6 @@ public class Controller extends HttpServlet {
     }
 
     private void checkLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
