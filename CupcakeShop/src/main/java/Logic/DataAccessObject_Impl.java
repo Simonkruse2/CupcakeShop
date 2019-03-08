@@ -9,6 +9,7 @@ import Data.CakeBottom;
 import Data.CakeToppings;
 import Data.Customer;
 import Data.Recipe;
+import Data.ShoppingCart;
 import Data.User;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -182,4 +183,37 @@ public class DataAccessObject_Impl {
             return null;
         }
     }
+    
+    public void storeOrder(User u) {
+        try {
+            DBConnector c = new DBConnector();
+            String query = "INSERT INTO invoice(Username,TotalPrice) "
+                    + "VALUES('" + u.getUsername() + "', '" + u.getCart() + "');";
+            Connection connection = c.getConnection();
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(query);
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void storeOrderline(ShoppingCart shoppingCart, User u) {
+        
+        try {
+            DBConnector c = new DBConnector();
+            for (int i = 0; i < shoppingCart.getOrderLines().size(); i++) {
+                        String query = "INSERT INTO orderline(Quantity,Cakebottom,Caketoppings,TotalPrice) "
+                        + "VALUES(" + shoppingCart.getOrderLines().get(i).getQuantity() + ", '" + 
+                        shoppingCart.getOrderLines().get(i).getCupcake().getBottom()
+                        + "', '" + shoppingCart.getOrderLines().get(i).getCupcake().getToppings() + "', " +
+                        shoppingCart.getOrderLines().get(i).getCupcake().getPrice()+ ");";
+                Connection connection = c.getConnection();
+                Statement stmt = connection.createStatement();
+                stmt.executeUpdate(query);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+}
 }

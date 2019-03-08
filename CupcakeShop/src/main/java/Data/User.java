@@ -13,6 +13,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private ShoppingCart cart;
 
     public User(String username, String password, String email) {
         this.username = username;
@@ -30,6 +31,14 @@ public class User {
 
     public String getEmail() {
         return email;
+    }
+
+    public ShoppingCart getCart() {
+        return cart;
+    }
+
+    public void setCart(ShoppingCart cart) {
+        this.cart = cart;
     }
     
 
