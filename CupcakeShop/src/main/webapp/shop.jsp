@@ -23,8 +23,8 @@
                 <ul>
                     <a href="Controller?origin=shop"><img src="IMG/logo.png" alt=""/></a>
                     <li style="float:right"><a href="Controller?origin=Invoice"><button>Invoice</button></a></li>
-                    <li style="float:right"><p>Who is logged in: <% out.print(u.getUsername()); %></p></li>
-                    <li style="float:right"><p>Show balance: <% out.print(customer.getBalance()); %></p></li>
+                    <li style="float:right"><p>Logged in as: <% out.print(u.getUsername()); %></p></li>
+                    <li style="float:right"><p>Balance: <% out.print(customer.getBalance()); %></p></li>
                 </ul>
             </nav>
         </header>
