@@ -1,3 +1,4 @@
+<%@page import="Data.CakeToppings"%>
 <%@page import="Data.CakeBottom"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Logic.DataAccessObject_Impl"%>
@@ -54,13 +55,16 @@
                             </select>
                         </td>
                         <td>
-                            <select class="mdb-select md-form selection" name="topping">
-                                <option value="">Choose topping</option>
-                                <option value="1">Chocolate: 5.0</option>
-                                <option value="2">Vanilla: 5.0</option>
-                                <option value="3">Nutmeg: 5.0</option>
-                                <option value="4">Pistacio: 6.0</option>
-                                <option value="5">Almond: 7.0</option>
+                            <select class="mdb-select md-form selection java.util.ArrayList" id="topping" name="topping">
+                                <option  value = "Choose a topping" disabled > Choose a bottom</option >
+                                <%
+                                    ArrayList<CakeToppings> listToppings = (ArrayList<CakeToppings>) session1.getAttribute("listToppings");
+                                    for (Object toppings : listToppings) {
+                                        int i = 1;
+                                %>
+                                <option value="<% out.print(i); %>"> <% out.print(toppings); %> </option >
+                                <% i++;
+                                    }%>
                             </select>
                         </td> 
                         <td>

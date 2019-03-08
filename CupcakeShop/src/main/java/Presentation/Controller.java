@@ -6,6 +6,7 @@
 package Presentation;
 
 import Data.CakeBottom;
+import Data.CakeToppings;
 import Logic.DataAccessObject_Impl;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,6 +40,8 @@ public class Controller extends HttpServlet {
         session = request.getSession();
         ArrayList<CakeBottom> listBottom = d.getBottom();
         session.setAttribute("listBottom",listBottom );
+        ArrayList<CakeToppings> listToppings = d.getToppings();
+        session.setAttribute("listToppings", listToppings);
         response.setContentType("text/html;charset=UTF-8");
         
 
