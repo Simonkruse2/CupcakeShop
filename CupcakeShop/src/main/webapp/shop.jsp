@@ -21,7 +21,7 @@
         <header class="container-fluid">
             <nav class="col-md-6 col-md-offset-3 shopnav">
                 <ul>
-                    <a href="Controller?origin=shop"><img src="IMG/logo.png" alt=""/></a>
+                    <a href="Controller?origin=shop"><img src="IMG/Crown Bakery.png" alt=""/></a>
                     <li style="float:right"><a href="Controller?origin=Invoice"><button>Invoice</button></a></li>
                     <li style="float:right"><p>Logged in as: <% out.print(u.getUsername()); %></p></li>
                     <li style="float:right"><p>Balance: <% out.print(customer.getBalance()); %></p></li>
