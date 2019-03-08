@@ -23,13 +23,12 @@ public class DataAccessObject_Impl {
     public void createCustomer(String email) {
         try {
             DBConnector c = new DBConnector();
-            String query1 = "INSERT INTO customers(Balance,Email) "
+            String query = "INSERT INTO customers(Balance,Email) "
                     + "VALUES(0, '" + email + "');";
            
-            System.out.println(email);
             Connection connection = c.getConnection();
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate(query1);
+            stmt.executeUpdate(query);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -37,12 +36,11 @@ public class DataAccessObject_Impl {
         public void createUser(String username, String password, String email) {
         try {
             DBConnector c = new DBConnector();
-            String query2 = "INSERT INTO users(Username,Password, Email) "
+            String query = "INSERT INTO users(Username,Password, Email) "
                     + "VALUES('" + username + "', '" + password + "', '" + email + "');";
-            System.out.println(username + password + email);
             Connection connection = c.getConnection();
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate(query2);
+            stmt.executeUpdate(query);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -54,7 +52,6 @@ public class DataAccessObject_Impl {
             DBConnector c = new DBConnector();
 
             String query = "SELECT Password FROM `users` WHERE Username = '" + username + "';";
-            System.out.println(username);
             Connection connection = c.getConnection();
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
