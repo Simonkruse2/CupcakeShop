@@ -22,6 +22,12 @@ import java.util.ArrayList;
  */
 public class DataAccessObject_Impl {
 
+    
+    /**
+     * Opretter en customer i databasen(mySQL). Balance er sat til 0 pr. default, email er givet som en parameter taget fra et tekstfelt. 
+     * Vigtigt at denne metode kaldes først, da email er en primarykey der bliver sat i customertabellen i databasen.
+     * @param email
+    */
     public void createCustomer(String email) {
         try {
             DBConnector c = new DBConnector();
@@ -36,6 +42,15 @@ public class DataAccessObject_Impl {
         }
     }
 
+    /**
+     * Opretter en user i databasen(mySQL). 
+     * username,password og email er input trukket ud af et tekstfelt.
+     * Skal kaldes efter createCustomer, da email er en foreign key sat i customertabellen.
+     * @param username
+     * @param password
+     * @param email 
+     */
+    
     public void createUser(String username, String password, String email) {
         try {
             DBConnector c = new DBConnector();
@@ -49,6 +64,15 @@ public class DataAccessObject_Impl {
         }
     }
 
+    
+    /**
+     * Tjekker i databasen om input username matcher input password.
+     * @param username
+     * @param password
+     * @return true for login.
+     */
+    
+    
     public boolean checkLogin(String username, String password) {
         String _password = "";
         try {
@@ -68,6 +92,12 @@ public class DataAccessObject_Impl {
         }
     }
 
+    /**
+     * Henter en user. 
+     * @param username - søges frem i databasen med et String username som query.
+     * @return en given user
+     */
+    
     public User getUser(String username) {
         User u = null;
         try {
@@ -94,28 +124,10 @@ public class DataAccessObject_Impl {
         }
     }
 
-    public ArrayList<Recipe> getRecipes(String name) {
-        try {
-            DBConnector c = new DBConnector();
-            //       String query = "SELECT * FROM cupcake.CupcakeRecipes;";
-            String query = "SELECT Name, Toppings, Bottom FROM `cupcake`.`CupcakeRecipes` WHERE Name LIKE '" + name + "';";
-            ArrayList<Recipe> recipes = new ArrayList<>();
-            Connection connection = c.getConnection();
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            while (rs.next()) {
-                String Name = rs.getString("Name");
-                String toppings = rs.getString("Toppings");
-                String bottom = rs.getString("Bottom");
-                recipes.add(new Recipe(Name, toppings, bottom));
-            }
-            return recipes;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
-
+    /**
+     * Henter alle cupcakebunde. Henter cupcakebunde fra databasen, så de kan displayes i en jsp.
+     * @return en ArrayList der indeholder alle cupcakebunde.
+     */
     public ArrayList<CakeBottom> getBottom() {
         try {
             DBConnector c = new DBConnector();
@@ -136,6 +148,11 @@ public class DataAccessObject_Impl {
         }
     }
 
+    
+    /**
+     * Henter alle cupcaketoppings. Henter cupcaketoppings fra databasen, så de kan displayes i en jsp.
+     * @return en ArrayList der indeholder alle cupcaketoppings.
+     */
     public ArrayList<CakeToppings> getToppings() {
         try {
             DBConnector c = new DBConnector();
@@ -156,6 +173,12 @@ public class DataAccessObject_Impl {
         }
     }
 
+    /**
+     * Henter en given customer. Skal bruges til at vise bl.a. balance og hvem der er logget ind.
+     * @param username - gives som et parameter, der bruges i sql queriet. 
+     * @return en given customer.
+     */
+    
     public Customer getCustomer(String username) {
         Customer u = null;
         try {
@@ -183,7 +206,10 @@ public class DataAccessObject_Impl {
             return null;
         }
     }
-    
+    /**
+     * 
+     * @param u 
+     */
     public void storeOrder(User u) {
         try {
             DBConnector c = new DBConnector();
@@ -198,6 +224,12 @@ public class DataAccessObject_Impl {
         }
     }
 
+    /**
+     * 
+     * @param shoppingCart
+     * @param u 
+     */
+    
     public void storeOrderline(ShoppingCart shoppingCart, User u) {
         
         try {
