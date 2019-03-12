@@ -73,6 +73,8 @@ public class Controller extends HttpServlet {
             case "Invoice":
                 Invoice(request, response);
                 break;
+            case "balance":
+                updateBalance(request, response);
             default:
                 throw new AssertionError();
         }
@@ -92,9 +94,6 @@ public class Controller extends HttpServlet {
     }
 
     private void shop(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        
-
 
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
@@ -137,6 +136,14 @@ public class Controller extends HttpServlet {
         d.createUser(username, password, email);
 
         request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
+    
+    private void updateBalance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User u = (User)request.getSession().getAttribute("user");
+        Customer c = (Customer)request.getSession().getAttribute("customer");
+        int balance =  Integer.parseInt(request.getParameter("amount"));
+        d.updateBalance(u.getEmail(), c.getBalance(),balance);
+       request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

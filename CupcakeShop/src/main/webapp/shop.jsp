@@ -25,6 +25,12 @@
                     <li style="float:right"><a href="Controller?origin=Invoice"><button>Invoice</button></a></li>
                     <li style="float:right"><p>Logged in as: <% out.print(u.getUsername()); %></p></li>
                     <li style="float:right"><p>Balance: <% out.print(customer.getBalance()); %></p></li>
+                    <form action="Controller?origin=balance" method="post" class="text-center login" style="color: #123050;">
+                    <div class="col-md-12"> 
+                        <input type="text" class="form-control" name="amount" placeholder="Amount">
+                    </div>
+                    <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Update balance</button>
+                </form>
                 </ul>
             </nav>
         </header>

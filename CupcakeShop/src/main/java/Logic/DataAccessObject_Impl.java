@@ -254,13 +254,13 @@ public class DataAccessObject_Impl {
         }
     }
 
-    public void updateBalance(User u, Customer cust, int balance) {
+    public void updateBalance(String email, int custBalance, int balance) {
         try {
+            int amount = custBalance + balance;
             DBConnector c = new DBConnector();
-            String query = "UPDATE Balance \n"
-                         + "SET ("+balance + cust.getBalance() + ")"
-                         + "FROM customers \n"
-                         + "WHERE email = '" + u.getEmail() + "';";
+            String query = "UPDATE customers "
+                         + "SET Balance = "+ amount + " "
+                         + "WHERE Email = '" + email + "';";
             Connection connection = c.getConnection();
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(query);
