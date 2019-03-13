@@ -11,13 +11,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <% HttpSession session1 = request.getSession(); 
-        User u = (User)session1.getAttribute("user");
-        Customer customer = (Customer)session1.getAttribute("customer");
+        <% HttpSession session1 = request.getSession();
+            User u = (User) session1.getAttribute("user");
+            Customer customer = (Customer) session1.getAttribute("customer");
         %>
         <title>JSP Page</title>
     </head>
-    <body> 
+    <body>
         <header class="container-fluid">
             <nav class="col-md-6 col-md-offset-3 shopnav">
                 <ul>
@@ -25,12 +25,14 @@
                     <li style="float:right"><a href="Controller?origin=Invoice"><button>Invoice</button></a></li>
                     <li style="float:right"><p>Logged in as: <% out.print(u.getUsername()); %></p></li>
                     <li style="float:right"><p>Balance: <% out.print(customer.getBalance()); %></p></li>
-                    <form action="Controller?origin=balance" method="post" class="text-center login" style="color: #123050;">
-                    <div class="col-md-12"> 
-                        <input type="text" class="form-control" name="amount" placeholder="Amount">
-                    </div>
-                    <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Update balance</button>
-                </form>
+                    <li style="float:right" class="container">
+                        <form action="Controller?origin=balance" method="post" class="text-center input-group" style="margin-top:3em">
+                            <span class="input-group-btn">
+                                <button class="btn" type="submit">Update balance</button>
+                            </span>
+                            <input type="text" class="form-control" name="amount" placeholder="Amount">
+                        </form>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -124,7 +126,7 @@
                     </tr>
                 </table> 
             </section>
-                                        <footer class="footer">
+            <footer class="footer">
                 <h1>Contacts</h1>
                 <table class="col-md-5">
                     <tr>
