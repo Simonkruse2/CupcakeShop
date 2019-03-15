@@ -7,9 +7,10 @@ package Data;
 
 import java.util.ArrayList;
 
+
 /**
  *
- * @author jacobfolkehildebrandt
+ * @author Jakob, Vincent, Renz, Simon.
  */
 public class ShoppingCart {
     private ArrayList<OrderLine> orderLines = new ArrayList();

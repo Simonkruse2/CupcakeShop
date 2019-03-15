@@ -5,9 +5,10 @@
  */
 package Data;
 
+
 /**
  *
- * @author jacobfolkehildebrandt
+ * @author Jakob, Vincent, Renz, Simon.
  */
 public class Cupcake {
     private int price;

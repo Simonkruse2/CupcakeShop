@@ -16,19 +16,18 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 /**
  *
- * @author simon
+ * @author Jakob, Vincent, Renz, Simon.
  */
 public class DataAccessObject_Impl {
 
     /**
-     * Opretter en customer i databasen(mySQL). Balance er sat til 0 pr.
-     * default, email er givet som en parameter taget fra et tekstfelt. Vigtigt
-     * at denne metode kaldes først, da email er en primarykey der bliver sat i
-     * customertabellen i databasen.
-     *
-     * @param email
+     * Inserts a customer into the database(mySQL). 
+     * Balance is by default 0.
+     * Remember to call this method before createUser, since email is a primary key set in the customer table.
+     * @param email email is drawn from a textfield.
      */
     public void createCustomer(String email) {
         try {
@@ -45,13 +44,12 @@ public class DataAccessObject_Impl {
     }
 
     /**
-     * Opretter en user i databasen(mySQL). username,password og email er input
-     * trukket ud af et tekstfelt. Skal kaldes efter createCustomer, da email er
-     * en foreign key sat i customertabellen.
-     *
-     * @param username
-     * @param password
-     * @param email
+     * Inserts a user into the database(mySQL). 
+     * Remember to call this method after createCustomer, 
+     * since email is a foreign key set in createCustomer
+     * @param username input drawn from a textfield.
+     * @param password input drawn from a textfield.
+     * @param email input drawn from a textfield.
      */
     public void createUser(String username, String password, String email) {
         try {
@@ -67,10 +65,9 @@ public class DataAccessObject_Impl {
     }
 
     /**
-     * Tjekker i databasen om input username matcher input password.
-     *
-     * @param username
-     * @param password
+     * Checks whether the input username and password matches in the database(mySQL).
+     * @param username input drawn from a textfield.
+     * @param password input drawn from a textfield.
      * @return true for login.
      */
     public boolean checkLogin(String username, String password) {
@@ -93,11 +90,9 @@ public class DataAccessObject_Impl {
     }
 
     /**
-     * Henter en user.
-     *
-     * @param username - søges frem i databasen med et String username som
-     * query.
-     * @return en given user
+     * Returns a user.
+     * @param username is drawn from the database with a query.
+     * @return the specified user.
      */
     public User getUser(String username) {
         User u = null;
@@ -126,10 +121,9 @@ public class DataAccessObject_Impl {
     }
 
     /**
-     * Henter alle cupcakebunde. Henter cupcakebunde fra databasen, så de kan
-     * displayes i en jsp.
-     *
-     * @return en ArrayList der indeholder alle cupcakebunde.
+     * Returns all cupcakebottoms. 
+     * Returns cupcakebottoms from the database(mySQL), so they can be displayed in a jsp.
+     * @return an ArrayList that holds all the cupcakebottoms.
      */
     public ArrayList<CakeBottom> getBottom() {
         try {
@@ -152,10 +146,9 @@ public class DataAccessObject_Impl {
     }
 
     /**
-     * Henter alle cupcaketoppings. Henter cupcaketoppings fra databasen, så de
-     * kan displayes i en jsp.
-     *
-     * @return en ArrayList der indeholder alle cupcaketoppings.
+     * Returns all cupcaketoppings. 
+     * Returns cupcaketoppings from the database(mySQL), so they can be displayed in a jsp.
+     * @return an ArrayList that holds all the cupcaketoppings.
      */
     public ArrayList<CakeToppings> getToppings() {
         try {
@@ -178,11 +171,10 @@ public class DataAccessObject_Impl {
     }
 
     /**
-     * Henter en given customer. Skal bruges til at vise bl.a. balance og hvem
-     * der er logget ind.
-     *
-     * @param username - gives som et parameter, der bruges i sql queriet.
-     * @return en given customer.
+     * Returns a customer.
+     * The method is used to display balance and what user is currently logged in.
+     * @param username input drawn from a textfield.
+     * @return a user.
      */
     public Customer getCustomer(String username) {
         Customer u = null;
@@ -213,7 +205,8 @@ public class DataAccessObject_Impl {
     }
 
     /**
-     *
+     * Creates an invoice in the database(mySQL).
+     * Currently not in use anywhere.
      * @param u
      */
     public void storeOrder(User u) {
@@ -231,7 +224,9 @@ public class DataAccessObject_Impl {
     }
 
     /**
-     *
+     * Creates an orderline.
+     * Currently not in use anywhere.
+     * Meant to combine the cupcakebottom and cupcaketopping to create a cupcake with a price.
      * @param shoppingCart
      * @param u
      */
@@ -254,6 +249,12 @@ public class DataAccessObject_Impl {
         }
     }
 
+    /**
+     * Updates a customers balance.
+     * @param email Input is taken from a textfield.
+     * @param custBalance The customers balance before adding any money.
+     * @param balance The balance to be added to custBalance.
+     */
     public void updateBalance(String email, int custBalance, int balance) {
         try {
             int amount = custBalance + balance;

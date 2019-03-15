@@ -5,9 +5,10 @@
  */
 package Data;
 
+
 /**
  *
- * @author simon
+ * @author Jakob, Vincent, Renz, Simon.
  */
 public class Customer extends User{
     private int balance = 0;

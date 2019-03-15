@@ -5,9 +5,10 @@
  */
 package Data;
 
+
 /**
  *
- * @author simon
+ * @author Jakob, Vincent, Renz, Simon.
  */
 public class Recipe {
     
