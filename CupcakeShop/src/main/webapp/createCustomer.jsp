@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <input type="text" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
                     <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">CREATE</button>
                     <a href="CupcakeShop/"><button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">login page</button></a>

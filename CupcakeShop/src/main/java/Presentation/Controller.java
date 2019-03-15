@@ -19,7 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 /**
  *
  * @author Jakob, Vincent, Renz, Simon.
@@ -42,11 +41,10 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         session = request.getSession();
         ArrayList<CakeBottom> listBottom = d.getBottom();
-        session.setAttribute("listBottom",listBottom );
+        session.setAttribute("listBottom", listBottom);
         ArrayList<CakeToppings> listToppings = d.getToppings();
         session.setAttribute("listToppings", listToppings);
         response.setContentType("text/html;charset=UTF-8");
-        
 
         String origin = request.getParameter("origin");
         switch (origin) {
@@ -109,22 +107,22 @@ public class Controller extends HttpServlet {
     }
 
     /**
-     * Checks login.
-     * A session is created and attributes are set based on which user/customer is trying to log in as. 
-     * If the login is successful, the user is forwarded to shop.jsp, if not, then index.jsp.
+     * Checks login. A session is created and attributes are set based on which
+     * user/customer is trying to log in as. If the login is successful, the
+     * user is forwarded to shop.jsp, if not, then index.jsp.
+     *
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
-    
     private void checkLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = d.getUser(username);
         Customer customer = d.getCustomer(username);
-        
+
         session.setAttribute("user", user);
         session.setAttribute("customer", customer);
 
@@ -139,16 +137,16 @@ public class Controller extends HttpServlet {
     }
 
     /**
-     * Creates a customer.
-     * If the customer doens't have a login, they have the option to create one. 
-     * The text fields are set as parameters and is used to create the customer.
-     * The customer is then forwarded to index.jsp, so they can login and proceed in the system.
+     * Creates a customer. If the customer doens't have a login, they have the
+     * option to create one. The text fields are set as parameters and is used
+     * to create the customer. The customer is then forwarded to index.jsp, so
+     * they can login and proceed in the system.
+     *
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
-    
     private void makeCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String username = request.getParameter("username");
@@ -159,24 +157,25 @@ public class Controller extends HttpServlet {
 
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
-    
+
     /**
-     * Updates a customers balance.
-     * The customer is able to update his/her balance using this method. 
-     * After the user has specified an amount and clicked the button to add it,
-     * they will be forwarded to the shop.jsp again. 
-     * Currently the balance doesn't reflect the changes, but the change is saved in the database(mySQL).
+     * Updates a customers balance. The customer is able to update his/her
+     * balance using this method. After the user has specified an amount and
+     * clicked the button to add it, they will be forwarded to the shop.jsp
+     * again. Currently the balance doesn't reflect the changes, but the change
+     * is saved in the database(mySQL).
+     *
      * @param request
      * @param response
      * @throws ServletException
-     * @throws IOException 
+     * @throws IOException
      */
     private void updateBalance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User u = (User)request.getSession().getAttribute("user");
-        Customer c = (Customer)request.getSession().getAttribute("customer");
-        int balance =  Integer.parseInt(request.getParameter("amount"));
-        d.updateBalance(u.getEmail(), c.getBalance(),balance);
-       request.getRequestDispatcher("shop.jsp").forward(request, response);
+        User u = (User) request.getSession().getAttribute("user");
+        Customer c = (Customer) request.getSession().getAttribute("customer");
+        int balance = Integer.parseInt(request.getParameter("amount"));
+        d.updateBalance(u.getEmail(), c.getBalance(), balance);
+        request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

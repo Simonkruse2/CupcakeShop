@@ -25,7 +25,7 @@
                         <input type="password" class="form-control" name="password" placeholder="Password">
                     </div>
                     <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
-                    <span>Not a member?
+                    <span style="color:black;">Not a member?
                         <br>
                         <a href="Controller?origin=createCustomer" >click here if you're not already a user</a>
                     </span>
