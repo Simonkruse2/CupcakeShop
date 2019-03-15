@@ -6,6 +6,7 @@
 --%>
 
 <!DOCTYPE html>
+<link href="normalize.css" rel="stylesheet" type="text/css"/>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="Styling.css" rel="stylesheet" type="text/css"/>
 <html>

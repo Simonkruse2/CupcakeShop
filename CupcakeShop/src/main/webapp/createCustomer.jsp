@@ -13,7 +13,7 @@
                 <h1>Create Customer</h1>
                 <form action="Controller?origin=makeCustomer" method="post" class="text-center login" style="color: #757575;">
                     <div class="col-md-12"> 
-                        <input type="text" class="form-control" name="email" placeholder="Email">
+                        <input type="text" class="form-control" name="email" placeholder="Email" required="">
                     </div>
 
                     <div class="col-md-12"> 
