@@ -129,7 +129,7 @@ public class Controller extends HttpServlet {
         boolean valid = d.checkLogin(username, password);
 
         if (valid && username != null && password != null && !("".equals(username))
-                && !("".equals(password))) {
+                       && !("".equals(password))) {
             request.getRequestDispatcher("shop.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -189,7 +189,7 @@ public class Controller extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+                   throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -203,7 +203,7 @@ public class Controller extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+                   throws ServletException, IOException {
         processRequest(request, response);
     }
 
@@ -217,4 +217,13 @@ public class Controller extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-}
+    private void logOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getParameter("logud") != null) {
+            session.invalidate();
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+    }
+    
+    
+    
+    }
